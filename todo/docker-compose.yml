@@ -14,5 +14,20 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: always
 
+  app:
+    build: .
+    container_name: go_todo_app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: GO_DEV
+      DB_PASSWORD: GO_DEV
+      DB_NAME: GO_DEV
+    restart: always
+
 volumes:
   postgres_data:

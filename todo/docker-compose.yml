@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: Go_dev
+    ports:
+      - "5433:5432"    # HostPort:ContainerPort
+    environment:
+      POSTGRES_USER: GO_DEV
+      POSTGRES_PASSWORD: GO_DEV
+      POSTGRES_DB: GO_DEV
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  postgres_data:

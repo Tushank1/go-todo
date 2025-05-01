@@ -67,7 +67,7 @@ func UpdateTodo(c *gin.Context) {
 	}
 
 	_, err := database.DB.Exec(
-		"UPDATE todo SET task = $1, done = $2 WHERE id = $3",
+		"UPDATE todo SET title = $1, completed = $2 WHERE id = $3",
 		todo.Title, todo.Completed, id,
 	)
 	if err != nil {
